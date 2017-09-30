@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.prime.com.tr/ui"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core">
+	  
+	  
+	<f:view contentType="text/html" />  
+
+<h:head>
+<title>ZeroUm</title>
+<link href="textox.css" rel="stylesheet" type="text/css"/>
+
+</h:head>
+
+<h:body>
+	<br /><br />
+	 <table>
+   	<c:forEach items="${usuario.listaMensagens}" var="item">
+   		<tr>
+   		<td align="center"><h:outputText value="${item}" style="color: red"/></td>
+   		</tr>
+   	</c:forEach>
+  	</table>
+  	
+  	<div align="center">
+  	<img src="icones/login.jpg" width="300px" height="250px"/>
+  	</div>
+  	
+  	<h:form>
+  	<div align="center" >
+  	<p:panel style="width:250px; align:center; font-size: small; position: center;" id="sports" header="Login"> 
+  	<div align="left"> 
+        <h:outputLabel align="left" value="Email: "/>
+        <h:inputText id="textAreaLogin" cols="14"  value="#{usuario.usuario.email}" /><br />
+		<h:outputLabel value="Senha: "/>
+		<h:inputSecret id="textAreaSenha" cols="14"  value="#{usuario.usuario.senha}" /><br />
+	</div>
+	<div align="right">
+		<h:commandButton value="Entrar" action="#{usuario.entrar}" /><br />
+	</div>	
+	</p:panel> 
+	
+		<p:commandLink styleClass="link" action="#{usuario.entrarCadastraUsuario}">
+			<h:outputText value="Cadastre-se" />
+		</p:commandLink> | <p:commandLink styleClass="link" action="#{usuario.entrarAjuda}">
+			<h:outputText value="Saiba +" />
+		</p:commandLink>
+		<br />
+		<c:if test="${usuario.falha}">
+			<h:outputLabel styleClass="erro"><h:outputText value="Usuário e senha não encontrados" /></h:outputLabel>
+		</c:if> 
+	</div>
+	</h:form>
+  			
+</h:body>
+
+</html>

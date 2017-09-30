@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.prime.com.tr/ui"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core">
+	  
+	  
+<f:view contentType="text/html" />  
+
+<h:head>
+<title>ZeroUm</title>
+<link href="textox.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+<h:body>
+<h:form>
+<table width="100%" class="tabelafundo">
+<tr><td><img src="icones/banner.jpg" width="100%" height="90"/></td></tr>
+<tr><td>
+	<p:menubar style="horizontal-align:center"> 
+				<p:submenu><f:facet name="label">
+					<p:menuitem styleClass="menubar" value="« Voltar" onclick="history.go(-1)"/>
+				</f:facet></p:submenu>
+	</p:menubar>
+</td>
+</tr>
+</table>
+</h:form>
+	<br />
+	<p:fieldset styleClass="texto" legend="O que é">
+	<p style="text-align:justify;"> 
+	    	O ZeroUm é sistema para análise e processamento das notícias divulgadas pela 
+	    <a href="http://www.agenciaalese.se.gov.br">ALESE - Agência de Notícias de Assembleia Legislativa do Estado de Sergipe</a>. Seu objetivo é 
+	    facilitar ao eleitor a documentação dessas notícias e, futuramente, fornecer apoio à decisão sobre qual candidato a deputado estadual 
+	    depositar seu voto. A análise consiste na categorização automática das notícias em rótulos pré-determinados que medem a atuação do
+	    parlamentar ao longo do seu mandato.
+	</p>    
+	</p:fieldset>
+	<p:fieldset styleClass="texto" legend="Classificação e pesos das classes"> 
+	<p style="text-align:justify;"> 
+			Cada notícia importada pela ALESE (Agência de Notícias da Assembléia Legislativa de Sergipe) é classificada de acordo com
+		o tipo da atividade que o deputado autor excerceu. São eles:<br />
+		<b>LAD (Lançamentos, aprovações e defesas): </b>Lançamento de ideias, lançamento e aprovação de projetos, defesa de algum
+		projeto a ser lançado ou em vigor. <br />
+		<b>ACP (Acusações, críticas e protestos): </b>Acusações a terceiros, críticas a terceiros ou projetos e protestos.<br />
+		<b>PNC (Participação na comunidade): </b>Participação em eventos diversos, inaugurações, visitas, apoio a grupo específico, <br />
+		datas comemorativas.<br />
+		<b>NEU (Neutro): </b> Não descreve uma atividade parlamentar, ou descreve uma ação parlamentar coletiva. As notícias <br />
+		classificadas por esse rótulo não influencirão no índice<br /><br />
+		Através do peso, o usuário poderá definir que tipo de atividade	que mais deseja em um parlamentar, e os parlamentares que
+		mais forem autores de notícias dessa classe serão bonificados na geração do seus índices, e consequentemente, melhor ranqueados.
+	</p>
+	</p:fieldset>
+	<p:fieldset styleClass="texto" legend="QoP">
+	<p style="text-align:justify;"> 
+			Como aditivo ao processo de classificação, o eleitor poderá determinar para cada notícia um peso especial, um valor que dê uma 
+		maior relevância àquela notícia e, consequentemente, ao parlamentar autor. Sendo assim, tendo disponível dados como quantidade de notícias, 
+		classe e relevância de cada notícia, será calculado um índice, denominado <b> QoP (Quality of Parliamentarian)</b>.<br />
+			O objetivo do QoP é expressar numericamente o nível de atuação parlamentar de cada deputado e assim, o ZeroUm disponibiliza um sistema de
+		ranqueamento que ordena os parlamentares de acordo com sua atividade exercida e perfil do eleitor; este poderá ter preferência por um determinado
+		tipo de atividade parlamentar, representado pelas classes rotuladas. 
+			Os valores do QoP variam em um escala de 0 a 100, sendo que essa escala não se alterar ao decorrer do tempo, ou seja, a avaliação dos índices
+		 dos deputados poderá ser feita de forma gradativa, numa análise feita periodicamente. O QoP seguirá duas vertentes:<br /><br />
+			<b>a. Personal QoP</b><br />
+			Essa versão do QoP é referente aos dados de cada usuário e remete a opinião pessoal do eleitor, ou seja, para cada deputado, os valores podem
+		diferir-se a depender do usuário. Cada usuário definirá pesos às classes (1-LAD, 2-ACP e 3-PNC). Esses pesos determinam a preferência do mesmo em 
+		relação aos tipos de atividades parlamentares, de modo que a soma dos pedos seja igual a 10. O p-QoPc para cada classe é dado por:<br /><br />
+									p-QoPc = (20 *  λ * qc)/q_mc <br /><br />
+			Onde:<br />
+			λ é a média das relevâncias de um determinado deputado em uma determinada classe de uma usuário específico.<br />
+			qc é quantidade que notícias que um determinado deputado ""publicou" em uma determinada classe.<br />
+			q_mc é a quantidade de notícias do deputado que mais publicou numa determinada classe.<br /><br />
+			O Personal Quality of Parliamentarian (p-QoP) é dado pela média ponderada dos p-QoPc, levando em consideração os pesos que foram atribuídos às classes: <br /><br />
+							p-QoP = p-QoP1 * pc1   +   p-QoP2 * pc2   +   p-QoP3 * pc3
+		<br /><br />
+			<b>b. General QoP</b><br />
+			General Quality of Parliamentarian (g-QoP) é o índice QoP calculado  a partir dos dados de todos os eleitores usuários. Da mesma forma do p-QoP,
+		os g-QoPc são cálculados a partir da fórmula a seguir:<br /><br />
+									p-QoPc = (20 *  λ * qc)/q_mc <br /><br />
+			Onde:<br />
+			λ é a média das relevâncias de um determinado deputado em uma determinada classe de todos os usuários.<br />
+			qc é quantidade que notícias que um determinado deputado ""publicou" em uma determinada classe.<br />
+			q_mc é a quantidade de notícias do deputado que mais publicou numa determinada classe.<br /><br />
+			O General Quality of Parliamentarian (g-QoP) é dado pela média harmônica dos g-QoPc, somando-se 01 a cada q-QoPc e subtraindo 01 da média, para evitar que o
+			g-QoP seja igual a 0 se apenas um dos g-QoPc for igual a 0: <br /><br />
+							g-QoP =  3/(1/(g-QoP1 + 1) + 1/(g-QoP2 + 1) + 1/(g-QoP3 + 1)) - 1<br /><br />
+			
+	</p>
+	</p:fieldset>
+
+</h:body>
+
+</html>

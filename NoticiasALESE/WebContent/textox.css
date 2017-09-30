@@ -1,0 +1,56 @@
+.texto{
+	FACE="small fonts";
+	color: #191970;
+	margin: 5px
+}
+
+.data{
+	FACE="small fonts";
+	color: #4682B4;
+	margin: 5px;
+	text-align: center
+}
+
+.cabecalhotabela{
+	color: #191970;
+	background: #778899;
+}
+
+.linhapar{
+	background: #E0FFFF;
+}
+
+.linhaimpar{
+	background: #ADD8E6;
+}
+
+.tabelafundo{
+	background: #F0FFFF;
+}
+
+.menu{
+	background: #6495ED;
+	color: #FFFFFF;
+}
+
+.menubar { 
+	border: 0 ; 
+	font-size: small;  
+	float:right;
+	text-align: right;
+}
+
+.link{
+	font-family: arial;
+	font-size: small; 
+	color: #708090;
+	text-decoration: none;
+}
+
+.erro{
+	font-family: arial;
+	font-size: small; 
+	color: #FF0000;
+	text-decoration: none;
+}
+

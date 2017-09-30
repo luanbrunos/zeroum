@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.prime.com.tr/ui"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core">
+	  
+	  
+<f:view contentType="text/html" />  
+
+<h:head>
+<title>ZeroUm</title>
+<link href="textox.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+<h:body>
+<h:form>
+<table width="100%" class="tabelafundo">
+<tr><td><img src="icones/banner.jpg" width="100%" height="90"/></td></tr>
+<tr><td>
+	<p:menubar style="horizontal-align:center"> 
+				<p:submenu><f:facet name="label">
+				  <c:if test="${usuario.cadastrar}">
+					<p:menuitem styleClass="menubar" value="« Voltar" actionListener="#{usuario.sair}"/>
+				  </c:if>
+				  <c:if test="${!usuario.cadastrar}">
+					<p:menuitem styleClass="menubar" value="« Voltar" actionListener="#{noticia.redirecionarPaginaInicio}"/>
+				  </c:if>
+				</f:facet></p:submenu>
+				<p:submenu><f:facet name="label"><p:menuitem styleClass="menubar" value="Sobre o ZeroUm" action="#{usuario.entrarAjuda}"/></f:facet></p:submenu>
+	</p:menubar>
+</td>
+</tr>
+</table>
+
+</h:form>
+<h:form id="form1">
+ <p:messages id="messages" showDetail="true" autoUpdate="true" globalOnly="true"/>  
+</h:form>
+ 
+  <h:form>
+	<br /><br />
+		<div align="center">
+		<p:panel style="width:50%; align:center; font-size: small; position: center;" id="sports" header="${usuario.cadastrar ? 'Cadastrar usuário' : 'Alterar usuário'}">
+		  <table align="center">
+		   <tr>
+			<td align="right" width="50%"><h:outputLabel value="Nome: "/></td>
+			<td align="left"><h:inputText id="textAreaNome" cols="25"  value="#{usuario.usuario.nome}" /></td>
+		   </tr>
+		   <tr>	
+			<td align="right"><h:outputLabel value="Email: "/></td>
+			<td><h:inputText id="textAreaEmail" cols="25"  value="#{usuario.usuario.email}" /></td>
+		   </tr>
+			<c:if test="${!usuario.cadastrar}" >
+				<tr>
+					<td><h:outputLabel value="Alterar Senha" /></td>
+				</tr>
+				<tr>
+					<td align="right"><h:outputLabel value="Senha atual: "/></td>
+					<td><h:inputSecret id="textAreaSenhaAtual" cols="14"  value="#{usuario.senhaAtual}" /></td>
+				</tr>
+			</c:if>
+			<tr>
+				<td align="right"><h:outputLabel value="Nova senha: "/></td>
+				<td><h:inputSecret id="textAreaSenhaNova" cols="14"  value="#{usuario.senhaNova}" /></td>
+			</tr>
+			<tr>
+				<td align="right"><h:outputLabel value="Confirme nova senha: "/></td>
+				<td><h:inputSecret id="textAreaSenhaNova2" cols="14"  value="#{usuario.senhaNova2}" /></td>
+			</tr>
+			<tr><td></td></tr>
+			<tr>
+			<td colspan="2">
+				<table align="center">
+				 <tr><td>Pesos: </td>
+			 		<td>01-LAD |</td>
+			 		<td> 02-ACP |</td>
+			 		<td> 03-PNC |</td>
+			 		<td>
+			 			<p:graphicImage id="help" value="/icones/interrogacao.png" width="20" height="20" />
+			 			 <p:tooltip id="toolTipFade" for="help" style="width: 100px;" >
+			 			 	<h:outputText value="Através do peso, o usuário poderá definir o tipo de atividade que mais deseja em um parlamentar, e os parlamentares que mais forem autores de notícias dessa classe serão bonificados na geração do seus índices, e consequentemente, melhor ranqueados." /><br />
+			 			 	<h:outputText value="A soma dos pesos deve ser igual a 10. As classes são: " /><br />
+			 			 	<h:outputText value="■ LAD (Lançamentos, aprovações e defesas): Lançamento de ideias, lançamento e aprovação de projetos, defesa de algum projeto a ser lançado ou em vigor." /> <br />
+							<h:outputText value="■ ACP (Acusações, críticas e protestos): Acusações a terceiros, críticas a terceiros ou projetos e protestos. "/><br />
+							<h:outputText value="■ PNC (Participação na comunidade): Participação em eventos diversos, inaugurações, visitas, apoio a grupo específico, datas comemorativas. " /><br />
+			 			 </p:tooltip>
+			 		</td>
+			 	</tr>
+			 	<tr>
+			 		<td></td>
+			 		<td>
+			 			<h:selectOneMenu id="pesoClasse1" value="${usuario.usuario.pesoClasse1}" onchange="this.form.submit()" immediate="true">
+				    		<f:selectItems value="#{usuario.usuario.pesos1}" />
+			 			</h:selectOneMenu>
+			 		</td>
+			 		<td>
+			 			<h:selectOneMenu id="pesoClasse2" value="${usuario.usuario.pesoClasse2}" onchange="this.form.submit()" immediate="true">
+				 	   		<f:selectItems value="#{usuario.usuario.pesos2}" />
+			 			</h:selectOneMenu>
+			 		</td>
+			 		<td>
+			 			<h:outputLabel value="${10-usuario.usuario.pesoClasse1-usuario.usuario.pesoClasse2}" />
+			 		</td>
+			 		<td></td>
+			  	</tr>
+			 	</table>
+		 	</td>
+		 	</tr>
+		 	<tr>
+		  		<td colspan="2" align="center">
+		  			<h:selectBooleanCheckbox value="#{usuario.usuario.receberEmails}" /> Desejo ser notificado por e-mail quando novas notícias forem cadastradas.
+		  		</td>
+		  	</tr>
+		</table> 	
+	</p:panel>
+		<br />
+		<div align="center">
+			<h:commandButton value="${usuario.cadastrar ? 'Cadastrar' : 'Salvar'}" action="#{usuario.persistirUsuario}" />
+		</div>
+    
+	</div>
+	
+	</h:form>	
+</h:body>
+
+</html>

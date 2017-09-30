@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/hibernate-annotations-3.5.0-CR-2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/hibernate-entitymanager-3.5.0-CR-2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/jsf-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/jsf-impl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/packageManager-source.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/postgresql-9.0-801.jdbc4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/primefaces-2.2.RC2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/primefaces-3.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/ptstemmer.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/ptstemmer-weka.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/remoteExperimentServer.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/weka.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC 06/Dropbox/Coisas do TCC não-compartilhadas/workspace-tcc2/LIB/weka-src.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

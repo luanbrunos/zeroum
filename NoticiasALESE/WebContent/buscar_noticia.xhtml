@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.prime.com.tr/ui"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+	  
+	  
+	<f:view contentType="text/html" />  
+
+<h:head>
+<title>ZeroUm - Buscar Notícia</title>
+<link href="textox.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+<h:body>
+  <table width="100%" class="tabelafundo">
+   <tr><td><img src="icones/banner.jpg" width="100%" height="90"/></td></tr>
+   <tr><td>
+   <h:form>
+	<p:menubar style="horizontal-align:center"> 
+				<p:submenu><f:facet name="label"><p:menuitem styleClass="menubar" value="« Voltar" actionListener="#{noticia.redirecionarPaginaInicio}"/></f:facet></p:submenu>
+	</p:menubar>
+	</h:form>
+	</td>
+	</tr>
+  </table> 
+
+ <h:form id="form1">
+ <p:messages id="messages" showDetail="true" autoUpdate="true" globalOnly="true"/>  
+</h:form>
+ <br /> <br />
+  
+  <h:form>
+  	<div align="center" >
+  	<p:panel style="width:500px; align:center; font-size: small; position: center;" id="sports" header="Buscar notícias lidas"> 
+  	<div align="left">
+  	  <table>
+  	   <tr>
+        <td><h:outputLabel value="Título: "/></td>
+		<td><h:inputText id="textAreaTitulo" size="50"  value="#{noticia.noticia.titulo}" /></td>
+	   </tr>
+	   <tr> 	
+		<td><h:outputLabel value="Texto: "/></td>
+		<td><h:inputText id="textAreaTexto" size="50"  value="#{noticia.noticia.texto}" /></td>
+	   </tr>
+	   <tr>	
+		<td><h:outputLabel value="Autor: "/></td>
+		<td><h:selectOneMenu id="areaAutor" value="${noticia.noticia.idDeputado}">
+			    	<f:selectItems value="#{noticia.deputados}" />
+		</h:selectOneMenu></td>
+	   </tr>	
+	   <tr>	
+		<td><h:outputLabel value="Classe: "/></td>
+		<td><h:selectOneMenu id="areaClasse" value="${noticia.noticia.classe}">
+			    	<f:selectItems value="#{noticia.classes}" />
+		</h:selectOneMenu></td>
+	   </tr>
+	   <tr>	
+		<td><h:outputLabel value="Relevância de: "/></td>
+		<td><h:selectOneMenu id="areaRelevancia1" value="${noticia.relevanciaInicio}">
+			    	<f:selectItems value="#{noticia.relevancias}" />
+		</h:selectOneMenu> a
+		<h:selectOneMenu id="areaRelevancia2" value="${noticia.relevanciaFim}">
+			    	<f:selectItems value="#{noticia.relevancias}" />
+		</h:selectOneMenu></td>
+	   </tr>
+	   <tr>	
+		<td><h:outputLabel value="Período de: "/></td>
+		<td><p:calendar value="#{noticia.dataInicio}" pattern="dd/MM/yyyy" id="cal1" />
+		<h:outputLabel value="a"/>
+		<p:calendar value="#{noticia.dataFim}" pattern="dd/MM/yyyy" id="cal2" /></td>
+	   </tr>
+	   
+	   <tr>
+	   <td></td>
+	   <td align="center"><h:commandButton value="Buscar" action="#{noticia.buscarNoticia}" /></td>
+	   </tr>
+	   
+	  </table>	
+	</div>
+	</p:panel> 
+	</div>
+	</h:form>
+   <br />
+   <br />
+   <!-- Noticias encontradas -->
+   <c:if test="${not empty noticia.noticias}">
+   <h:form>
+  	<div align="center" >
+  	<p:panel style="width:70%; align:center; font-size: small; position: center;" id="sports" header="Notícias encontradas"> 
+  	<table>
+  	  <c:set var="loop" value="${0}"/>
+        <c:forEach var="item" items="#{noticia.noticias}">
+       <c:set var="loop" value="${loop + 1}"/>
+				<tr class="${ loop % 2 == 0 ? 'linhapar' : 'linhaimpar' }">
+					<td class="data" width="15%"><h:outputLabel value="${item.data}"> <f:convertDateTime pattern="dd/MM/yyyy"/> </h:outputLabel></td>
+					<td><h:outputLabel value="${item.titulo}" /></td>
+					<td> <p:commandLink  action="#{noticia.entrarNoticia}" >                                      
+                        <f:param name="idNoticia" value="${item.idNoticia}"></f:param>
+                        <img src="icones/ver.gif" width="21" height="21"/>                                          
+                    </p:commandLink> </td>
+				</tr>
+		</c:forEach>
+		
+     </table>
+  	
+	</p:panel> 
+	</div>
+	</h:form>
+  </c:if>	
+
+</h:body>
+</html>
